@@ -37,4 +37,13 @@
 
 - **README.md**: 과제 내용 설명 리드미  
 
-- **02_Basketball-Contour-Assignment.py**: 모폴로지 연산 적용하여 최종 농구공 Contour 선택 및 출력
+- **02_Basketball-Contour-Assignment.py**: 모폴로지 연산 적용하여 최종 농구공 Contour 선택 및 출력 과제
+
+<br />
+
+### 3주차
+<h4>Project01</h4>
+
+- **README.md**: 프로젝트 내용 설명 리드미  
+
+- **Project1-Color_Hunt.py**: OpenCV 색 분할(HSV)과 Contour 검출로 카메라 속 빨강/초록/파랑 물건을 인식하고, 요구 색만 정확히 보여주면 통과하는 스피드 게임
