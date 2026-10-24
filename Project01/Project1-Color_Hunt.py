@@ -25,7 +25,7 @@ import numpy as np
 
 # ===================== 설정 =====================
 CAM_INDEX = 0
-FRAME_W, FRAME_H = 640, 480
+FRAME_W, FRAME_H = 1280, 720
 HOLD_TIME = 0.5            # 색상 노출이 이 시간 유지해야 통과
 MIN_AREA = 1500            # 이 면적 이상인 것만 색 인정 (노이즈 X)
 TIME_BY_COUNT = {1: 8, 2: 10, 3: 12}   # 1라운드 기준 {찾아야 할 색 개수: 제한 시간}
@@ -130,17 +130,33 @@ def new_round(prev_need, round_no):
 
 # ===================== 카메라 =====================
 def open_camera():
-    """윈도우: DirectShow / 리눅스(Jetson USB캠): V4L2"""
+    """윈도우 / 리눅스(Jetson USB캠/CSI캠)"""
     if sys.platform.startswith("win"):
         cap = cv2.VideoCapture(CAM_INDEX, cv2.CAP_DSHOW)
         cap.set(cv2.CAP_PROP_FRAME_WIDTH, FRAME_W)
         cap.set(cv2.CAP_PROP_FRAME_HEIGHT, FRAME_H)
-    else:
-        pipeline = (f"v4l2src device=/dev/video{CAM_INDEX} ! "
-                    f"video/x-raw, width={FRAME_W}, height={FRAME_H} ! "
-                    "videoconvert ! video/x-raw, format=BGR ! "
-                    "appsink drop=true max-buffers=1")
-         
+    else: # USB
+        pipeline = (
+            "v4l2src device=/dev/video0 ! "
+            "image/jpeg,width=1280,height=720,framerate=30/1 ! "
+            "jpegdec ! videoconvert ! video/x-raw,format=BGR ! "
+            "queue leaky=downstream max-size-buffers=1 "
+            "max-size-bytes=0 max-size-time=0 ! "
+            "appsink drop=true max-buffers=1 sync=false"
+        )
+
+        # CSI
+        # pipeline = (
+        #     "nvarguscamerasrc sensor-id=0 ! "
+        #     "video/x-raw(memory:NVMM), width=1280, height=720, framerate=30/1 ! "
+        #     "nvvidconv ! "
+        #     "video/x-raw, format=BGRx ! "
+        #     "videoconvert ! "
+        #     "video/x-raw, format=BGR ! "
+        #     "queue leaky=downstream max-size-buffers=1 ! "
+        #     "appsink drop=true max-buffers=1 sync=false"
+        # )
+                
         cap = cv2.VideoCapture(pipeline, cv2.CAP_GSTREAMER)
     
     return cap
