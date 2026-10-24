@@ -37,8 +37,7 @@ pip install opencv-python numpy
 ```bash
 python Project1-Color_Hunt.py
 ```
-- Jetson에서는 CSI 카메라를 먼저 시도하고, 안 열리면 USB 카메라(`/dev/video{CAM_INDEX}`)를 엽니다.
-- 카메라 번호가 맞지 않으면 코드 상단의 `CAM_INDEX`를 바꿉니다.
+- Jetson(USB)에서는 VAL2를 사용하고, 노트북(웹캠)에서는 DirectShow를 사용하여 두 환경에서 모두 실행 가능하게 하였습니다.
 
 ### 조작 키
 
