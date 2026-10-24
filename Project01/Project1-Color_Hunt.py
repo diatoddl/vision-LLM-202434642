@@ -133,10 +133,16 @@ def open_camera():
     """윈도우: DirectShow / 리눅스(Jetson USB캠): V4L2"""
     if sys.platform.startswith("win"):
         cap = cv2.VideoCapture(CAM_INDEX, cv2.CAP_DSHOW)
+        cap.set(cv2.CAP_PROP_FRAME_WIDTH, FRAME_W)
+        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, FRAME_H)
     else:
-        cap = cv2.VideoCapture(CAM_INDEX, cv2.CAP_V4L2)
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, FRAME_W)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, FRAME_H)
+        pipeline = (f"v4l2src device=/dev/video{CAM_INDEX} ! "
+                    f"video/x-raw, width={FRAME_W}, height={FRAME_H} ! "
+                    "videoconvert ! video/x-raw, format=BGR ! "
+                    "appsink drop=true max-buffers=1")
+         
+        cap = cv2.VideoCapture(pipeline, cv2.CAP_GSTREAMER)
+    
     return cap
 
 
