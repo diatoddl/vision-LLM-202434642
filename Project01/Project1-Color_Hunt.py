@@ -24,7 +24,7 @@ import cv2
 import numpy as np
 
 # ===================== 설정 =====================
-CAM_INDEX = 0 # 노트북: 0, 리눅스: 1
+CAM_INDEX = 0
 FRAME_W, FRAME_H = 640, 480
 HOLD_TIME = 0.5            # 색상 노출이 이 시간 유지해야 통과
 MIN_AREA = 1500            # 이 면적 이상인 것만 색 인정 (노이즈 X)
@@ -130,18 +130,11 @@ def new_round(prev_need, round_no):
 
 # ===================== 카메라 =====================
 def open_camera():
-    """Jetson(Linux): CSI 카메라 시도, 안 되면 USB"""
-    if sys.platform.startswith("linux"):
-        pipeline = ("nvarguscamerasrc sensor-id=0 ! "
-                    f"video/x-raw(memory:NVMM), width={FRAME_W}, height={FRAME_H}, framerate=30/1 ! "
-                    "nvvidconv ! video/x-raw, format=BGRx ! videoconvert ! video/x-raw, format=BGR ! "
-                    "queue leaky=downstream max-size-buffers=1 ! appsink drop=true max-buffers=1 sync=false")
-        cap = cv2.VideoCapture(pipeline, cv2.CAP_GSTREAMER)
-        if cap.isOpened():
-            return cap
-        cap = cv2.VideoCapture(CAM_INDEX, cv2.CAP_V4L2)
+    """윈도우: DirectShow / 리눅스(Jetson USB캠): V4L2"""
+    if sys.platform.startswith("win"):
+        cap = cv2.VideoCapture(CAM_INDEX, cv2.CAP_DSHOW)
     else:
-        cap = cv2.VideoCapture(CAM_INDEX)
+        cap = cv2.VideoCapture(CAM_INDEX, cv2.CAP_V4L2)
     cap.set(cv2.CAP_PROP_FRAME_WIDTH, FRAME_W)
     cap.set(cv2.CAP_PROP_FRAME_HEIGHT, FRAME_H)
     return cap
