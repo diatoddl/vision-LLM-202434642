@@ -1,1 +1,1 @@
-# 261018 Camera test Exercise
+# Camera test Exercise
