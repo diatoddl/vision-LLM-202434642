@@ -4,6 +4,7 @@
 - **03_Afterimages.py**: 261025 3주차 CuPy를 이용한 배열 연산 GPU 가속 1-이미지 잔상 효과 구현 과제
 - **03_Convolution2D.py**: 261025 3주차 CuPy를 이용한 배열 연산 GPU 가속 2-이미지 Convolution 연산 과제
 - **03_MNIST-Training.py**: 261025 3주차 PyTorch를 이용한 GPU 기반 MNIST 데이터셋 학습 과제
+- **03_Cifar-10.py**: 261025 3주차 Cifar-10 데이터셋 모델 학습 과제 (.pth 파일은 src/models/CIFAR10에 업로드)
 
 
 
@@ -15,6 +16,7 @@
 python 03_Afterimages.py
 python 03_Convolution2D.py
 python 03_MNIST-Training.py
+python 03_Cifar-10.py
 ```
 
 ## 실행 결과
@@ -62,3 +64,24 @@ GPU training time: 30.59s
 Time difference: 31.44s
 GPU speedup: 2.03x
 ```
+
+- **Cifar-10**
+```text
+100%|██████████| 170M/170M [47:39<00:00, 59.6kB/s]
+Train data: 50000
+Test data: 10000
+Device: cuda
+Total parameters: 1148874
+Epoch 1/5 | Train loss: 1.2848 | Train accuracy: 53.24% | Test loss: 0.9733 | Test accuracy: 64.88% | Time: 35.58s
+Epoch 2/5 | Train loss: 0.8858 | Train accuracy: 68.80% | Test loss: 0.7967 | Test accuracy: 72.35% | Time: 34.54s
+Epoch 3/5 | Train loss: 0.7120 | Train accuracy: 75.47% | Test loss: 0.6971 | Test accuracy: 76.75% | Time: 34.04s
+Epoch 4/5 | Train loss: 0.6245 | Train accuracy: 78.70% | Test loss: 0.6675 | Test accuracy: 77.71% | Time: 34.57s
+Epoch 5/5 | Train loss: 0.5557 | Train accuracy: 81.15% | Test loss: 0.5281 | Test accuracy: 82.39% | Time: 34.35s
+Total training time: 173.08s
+Saved: src/models/CIFAR10/CIFAR10_CNN.pth
+모델 이름: CIFAR10CNN
+Epoch 체크포인트: 5
+마지막 테스트 정확도: 82.39%
+불러온 모델 테스트 정확도: 82.39%
+```
+
