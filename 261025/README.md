@@ -4,7 +4,8 @@
 - **03_Afterimages.py**: 261025 3주차 CuPy를 이용한 배열 연산 GPU 가속 1-이미지 잔상 효과 구현 과제
 - **03_Convolution2D.py**: 261025 3주차 CuPy를 이용한 배열 연산 GPU 가속 2-이미지 Convolution 연산 과제
 - **03_MNIST-Training.py**: 261025 3주차 PyTorch를 이용한 GPU 기반 MNIST 데이터셋 학습 과제
-- **03_Cifar-10.py**: 261025 3주차 Cifar-10 데이터셋 모델 학습 과제 (.pth 파일은 src/models/CIFAR10에 업로드)
+- **03_Cifar-10.py**: 261025 3주차 Cifar-10 데이터셋 모델 학습 과제
+- CIFAR10_CNN.pth: **03_Cifar-10.py** 에서 저장된 모델 파일
 
 
 
