@@ -6,18 +6,24 @@
 - **03_MNIST-Training.py**: 261025 3주차 PyTorch를 이용한 GPU 기반 MNIST 데이터셋 학습 과제
 - **03_Cifar-10.py**: 261025 3주차 Cifar-10 데이터셋 모델 학습 과제
 - CIFAR10_CNN.pth: **03_Cifar-10.py** 에서 저장된 모델 파일
+- **04_iou.py**: 261031 4주차 Bounding Box 좌표 변환 및 IoU 계산 과제
+- **04_nms.py**: 261031 4주차 Confidence Thresholding 및 NMS 구현 과제
 
 
 
 ## 실행 방식
-- **실행 환경**: OpenCV, Matplotlib, CuPy, NumPy, PyTorch, torchvision
+- **실행 환경**: OpenCV, Matplotlib, CuPy, NumPy, PyTorch, torchvision, scikit-image
 
+ 
 - **실행**:
 ```bash
 python 03_Afterimages.py
 python 03_Convolution2D.py
 python 03_MNIST-Training.py
 python 03_Cifar-10.py
+python 04_iou.py
+python 04_nms.py
+
 ```
 
 ## 실행 결과
@@ -86,3 +92,19 @@ Epoch 체크포인트: 5
 불러온 모델 테스트 정확도: 82.39%
 ```
 
+ 
+- **IoU**
+```text
+0.0
+0.3045574867133154
+0.4934320197372808
+```
+ 
+- **NMS**
+```text
+20 20
+3 3
+20 20
+3 3
+```
+첫 번째는 직접 구현한 NMS, 두 번째 결과는 OpenCV NMS 결과이며, 랜덤으로 생성한 BBox 20개 중 5개가 남아 두 방식의 결과가 일치함을 확인
