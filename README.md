@@ -89,15 +89,15 @@
 <h4>실습 파일</h4>
 
 - **04_DL-Object-Detection.ipynb**: update
-- **05_LLM_and_Gemma.ipynb**: update
-- **06_Vision_LLM_Mutimodal_Systems.ipynb**
+- **05-LLM_and_Gemma.ipynb**: update
+- **06-Vision_LLM_Mutimodal_Systems.ipynb**
 
 <h4>Camera-Test (update)</h4>
 
 - **04_G-Calibration**: INT8 변환을 위한 Calibration 데이터셋 생성 파일
 - **04_G-INT8**: 데이터셋 값 분포를 분석, Quantization Scale을 계산하여, Scale을 기반으로 모델을 INT8 정밀도로 양자화
 
-<h4>Microhone-Test</h4>
+<h4>MicroPhone-Test</h4>
 
 - **06_Python-STT.py**: Python 파일로 STT 테스트
 - **06_Python-TTS.py**: Python 파일로 TTS 테스트
