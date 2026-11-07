@@ -66,8 +66,20 @@
 
 - **03_DL-and-GPU.ipynb**: update
 - **04_DL-Object-Detection.ipynb**
+- **05_LLM_and_Gemma.ipynb**
 
 <h4>Camera-Test (update)</h4>
 
 - **04_YOLO-camera-test.py**: 1031 수업 중 진행한 Object-Detection 카메라 실습 파일
+- **04_FPS-Test.py**: 1101 수업 중 진행한 Object-Detection 카메라 실습 파일
+
+<h4>261025<h4>
+
+- **03_Afterimages.py**: CuPy를 이용한 배열 연산 GPU 가속 1-이미지 잔상 효과 구현 과제
+- **03_Convolution2D.py**: CuPy를 이용한 배열 연산 GPU 가속 2-이미지 Convolution 연산 과제
+- **03_MNIST-Training.py**: PyTorch를 이용한 GPU 기반 MNIST 데이터셋 학습 과제
+- **03_Cifar-10.py**: Cifar-10 데이터셋 모델 학습 과제
+- CIFAR10_CNN.pth: **03_Cifar-10.py** 에서 저장된 모델 파일
+- **04_iou.py**: Bounding Box 좌표 변환 및 IoU 계산 과제
+- **04_nms.py**: Confidence Thresholding 및 NMS 구현 과제
 
