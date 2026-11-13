@@ -53,7 +53,7 @@
 
 - **03_DL-and-GPU.ipynb**
 
-<h4>Project01</h4>
+<h3>** Project01 **</h3>
 
 - **README.md**: 프로젝트 내용 설명
 
@@ -102,3 +102,14 @@
 - **06_Python-STT.py**: Python 파일로 STT 테스트
 - **06_Python-TTS.py**: Python 파일로 TTS 테스트
 - **06_STT-TTS-Test.py**: 위 파일과 동일 코드 함수화
+
+<h3>** Final_Project **</h3>
+
+파이널 프로젝트. 카메라 키고 공부하다가 딴짓하면 잔소리해주고, 음성으로 질의응답 해주는 프로그램.
+
+- **vision.py**: 메인 프로젝트 파일(카메라로 상황 감지하고 이벤트 저장)
+- **assistant.py**: 보조 파일(이벤트 읽어 Gemma로 답하여 음성 출력)
+- **demo**: 시연 영상
+- **Final_Project_PT.pdf**: 발표용 pdf 파일
+- **memo.txt**: 시연 시 필요한 명령어 모음
+- **README.md**: 프로젝트 설명
